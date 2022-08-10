@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- define the dependence -->
+	<bean id="myFortuneServiceBean" class="com.sindhoor.ex03_InjectionLiteralValues.happyFortuneService">
+	</bean> 
+	
+	<bean id="myCoachBean" class="com.sindhoor.ex03_InjectionLiteralValues.Coach">
+		
+		<!-- set up the setter injection -->
+		<property name="fortuneService" ref="myFortuneServiceBean"/>
+		
+		<!-- inject literal value -->
+		<property name="mailAddress" value="sindhoor2043@gmail.com"/>
+		<property name="team" value="RCB Forever!!!"/>
+		
+		
+	</bean>
+
+</beans>
+
+
+
+
+

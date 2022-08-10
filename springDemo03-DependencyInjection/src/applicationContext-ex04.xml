@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- load the property file -->
+	<context:property-placeholder location="classpath:sport.properties"/>
+	
+	<!-- define the dependence -->
+	<bean id="myFortuneServiceBean" class="com.sindhoor.ex04_InjectionLiteralValuesFromPropertiesFile.happyFortuneService">
+	</bean> 
+	
+	<bean id="myCoachBean" class="com.sindhoor.ex04_InjectionLiteralValuesFromPropertiesFile.Coach">
+		
+		<!-- set up the setter injection -->
+		<property name="fortuneService" ref="myFortuneServiceBean"/>
+		
+		<!-- inject literal value from properties file -->
+		<property name="mailAddress" value="${foo.mail}"/>
+		<property name="team" value="${foo.team}"/>
+		
+	</bean>
+
+</beans>
+
+
+
+
+
